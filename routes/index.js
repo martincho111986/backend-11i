@@ -4,6 +4,9 @@ const { getAllProducts, createProduct } = require('../controllers/productControl
 const { getAllUsers, getUserById, register, deleteUser, updateUserById, login } = require('../controllers/userController');
 const authenticateAdmin = require('../middlewares/authAdmin');
 const authenticateUser = require('../middlewares/authUser');
+const sendingEmail = require('../controllers/emailController');
+
+
 
 //rutas para usuarios
 router.get("/all-users", getAllUsers)
@@ -16,5 +19,9 @@ router.post("/login", login)
 //rutas para productos
 router.get("/productos/all",authenticateAdmin, getAllProducts)
 router.post('/productos', authenticateUser,  upload.single("image"), createProduct)
+
+router.post("/send", sendingEmail)
+
+
 
 module.exports = router;
