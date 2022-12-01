@@ -3,7 +3,8 @@ const nodemailer = require('nodemailer');
 const sendingEmail = async (req, res) =>{
     const { nombre, telefono, email, asunto, mensaje } = req.body;
     const transporter = nodemailer.createTransport({
-        host:"smtp.gmail.com",
+       // host:"smtp.gmail.com",
+        service:"gmail",
         secure:false, // port si secure es false por defecto tendria el port 587, si es true 465
         auth: {
             user:"comision11irc@gmail.com",
